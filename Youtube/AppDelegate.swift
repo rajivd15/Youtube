@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let layout = UICollectionViewFlowLayout()
         window?.rootViewController = UINavigationController(rootViewController: HomeViewController(collectionViewLayout: layout))
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 32/255, blue: 31/255, alpha: 1)
         return true
     }
 
@@ -96,3 +98,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+extension UINavigationController {
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return topViewController?.preferredStatusBarStyle ?? .default
+    }
+}
