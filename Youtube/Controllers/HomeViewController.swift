@@ -9,19 +9,9 @@
 import UIKit
 
 class HomeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
-    var style:UIStatusBarStyle = .default
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return self.style
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //MARK - Navigation bar Change Color
-        self.style = .lightContent
-        setNeedsStatusBarAppearanceUpdate()
         
         self.collectionView.backgroundColor = .white
         self.navigationController?.navigationBar.isTranslucent = false
