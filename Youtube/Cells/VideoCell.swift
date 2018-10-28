@@ -22,7 +22,7 @@ class VideoCell: UICollectionViewCell {
 
     let separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .darkGray
+        view.backgroundColor = .lightGray
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -40,6 +40,7 @@ class VideoCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Taylor Swift - Blank Space"
+        label.numberOfLines = 2
         return label
     }()
 
@@ -51,6 +52,8 @@ class VideoCell: UICollectionViewCell {
         textView.textColor = .lightGray
         return textView
     }()
+    
+    var titleHeightConstraint: NSLayoutConstraint?
     
     var video: Video? {
         didSet {
@@ -71,6 +74,19 @@ class VideoCell: UICollectionViewCell {
                 
                 let subtitleText = "\(channelName) • \(numberFormatter.string(from: noOfViews)!) • 2 years ago"
                 subTitleTextView.text = subtitleText
+            }
+            
+            //MARK: - Measure Title Height for video
+            if let videoTitle = video?.title {
+                let size = CGSize(width: frame.width - 16 - 44 - 8 - 16, height: 1000)
+                let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+                let estimatedRect = NSString(string: videoTitle).boundingRect(with: size, options: options , attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
+                
+                if estimatedRect.size.height > 20 {
+                    titleHeightConstraint?.constant = 44
+                } else {
+                    titleHeightConstraint?.constant = 20
+                }
             }
         }
     }
@@ -95,7 +111,7 @@ class VideoCell: UICollectionViewCell {
         addConstraintsWithVisualFormat(format: "H:|[v0]|", views: separatorView)
         addConstraintsWithVisualFormat(format: "H:|-16-[v0(44)]", views: userImageProfileView)
         
-        addConstraintsWithVisualFormat(format: "V:|-16-[v0]-8-[v1(44)]-16-[v2(1)]|", views: thumbnailImageView, userImageProfileView, separatorView)
+        addConstraintsWithVisualFormat(format: "V:|-16-[v0]-8-[v1(44)]-36-[v2(1)]|", views: thumbnailImageView, userImageProfileView, separatorView)
 
         //TitleLabel top constraint
         addConstraint(NSLayoutConstraint(item: self.titleLabel, attribute: .top, relatedBy: .equal, toItem: self.thumbnailImageView, attribute: .bottom, multiplier: 1, constant: 8))
@@ -104,7 +120,9 @@ class VideoCell: UICollectionViewCell {
         //right constraint
         addConstraint(NSLayoutConstraint(item: self.titleLabel, attribute: .right, relatedBy: .equal, toItem: self.thumbnailImageView, attribute: .right, multiplier: 1, constant: 0))
         //Top Constraint
-        addConstraint(NSLayoutConstraint(item: self.titleLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 20))
+        
+        titleHeightConstraint = NSLayoutConstraint(item: self.titleLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 44)
+        addConstraint(titleHeightConstraint!)
 
         //SubTitleLabel top constraint
         addConstraint(NSLayoutConstraint(item: self.subTitleTextView, attribute: .top, relatedBy: .equal, toItem: self.titleLabel, attribute: .bottom, multiplier: 1, constant: 4))
