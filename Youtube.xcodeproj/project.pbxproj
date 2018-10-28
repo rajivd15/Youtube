@@ -16,6 +16,7 @@
 		0557B706218197BA00A77EED /* YoutubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0557B705218197BA00A77EED /* YoutubeTests.swift */; };
 		05CDD0EC2182AEAD0080E5C5 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CDD0EB2182AEAD0080E5C5 /* VideoCell.swift */; };
 		05DAA21D2184F4B9000CBA52 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DAA21C2184F4B9000CBA52 /* Extensions.swift */; };
+		05DAA22521851714000CBA52 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DAA22421851714000CBA52 /* MenuBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		0557B707218197BA00A77EED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05CDD0EB2182AEAD0080E5C5 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		05DAA21C2184F4B9000CBA52 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		05DAA22421851714000CBA52 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuBar.swift; path = Youtube/Views/MenuBar.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		0557B6EC218197B900A77EED /* Youtube */ = {
 			isa = PBXGroup;
 			children = (
+				05DAA223218516F3000CBA52 /* Views */,
 				05DAA21F2184F519000CBA52 /* Cells */,
 				05DAA21E2184F507000CBA52 /* Controllers */,
 				05DAA21B2184F4A7000CBA52 /* Helpers */,
@@ -127,6 +130,15 @@
 				05CDD0EB2182AEAD0080E5C5 /* VideoCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		05DAA223218516F3000CBA52 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				05DAA22421851714000CBA52 /* MenuBar.swift */,
+			);
+			name = Views;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +244,7 @@
 			files = (
 				05DAA21D2184F4B9000CBA52 /* Extensions.swift in Sources */,
 				0557B6F0218197B900A77EED /* HomeViewController.swift in Sources */,
+				05DAA22521851714000CBA52 /* MenuBar.swift in Sources */,
 				05CDD0EC2182AEAD0080E5C5 /* VideoCell.swift in Sources */,
 				0557B6F6218197B900A77EED /* Youtube.xcdatamodeld in Sources */,
 				0557B6EE218197B900A77EED /* AppDelegate.swift in Sources */,

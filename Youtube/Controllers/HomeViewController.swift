@@ -13,15 +13,35 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView.backgroundColor = .white
-        self.navigationController?.navigationBar.isTranslucent = false
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
-        titleLabel.textColor = .white
-        titleLabel.text = "Home"
-        titleLabel.font = UIFont.systemFont(ofSize: 20)
-        self.navigationItem.titleView = titleLabel        
+        navigationItem.title = "Home"
+        navigationController?.navigationBar.isTranslucent = false
         
-        collectionView.register(VideoCell.self, forCellWithReuseIdentifier: "videoCellId")
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
+        titleLabel.text = "Home"
+        titleLabel.textColor = .white
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        navigationItem.titleView = titleLabel
+        
+        collectionView?.backgroundColor = .white
+        
+        collectionView?.register(VideoCell.self, forCellWithReuseIdentifier: "cellId")
+        
+        collectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        
+        self.setupMenuBar()
+    }
+    
+    let menuBar: MenuBar = {
+        let mb = MenuBar()
+        mb.translatesAutoresizingMaskIntoConstraints = false
+        return mb
+    }()
+    
+    private func setupMenuBar() {
+        self.view.addSubview(menuBar)
+        self.view.addConstraintsWithVisualFormat(format: "H:|[v0]|", views: menuBar)
+        self.view.addConstraintsWithVisualFormat(format: "V:|[v0(50)]", views: menuBar)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -29,13 +49,14 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videoCellId", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = (self.view.frame.width - 16 - 16) * 9 / 16
-        return CGSize(width: self.view.frame.width, height: height + 16 + 68)
+        let height = (view.frame.width - 16 - 16) * 9 / 16
+        return CGSize(width: view.frame.width, height: height + 16 + 68)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

@@ -20,17 +20,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
 
+        //MARK: - CollectionView Layout & Setting up Root view controller
         let layout = UICollectionViewFlowLayout()
         window?.rootViewController = UINavigationController(rootViewController: HomeViewController(collectionViewLayout: layout))
         
+        //MARK: - Setup Custom Tabbar with Navigationbar
         UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 32/255, blue: 31/255, alpha: 1)
-        application.statusBarStyle = .lightContent
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
 
+        //MARK: - Setup Status Bar with light content
         let statusBarBackgroundView = UIView()
         statusBarBackgroundView.backgroundColor = UIColor(red: 194/255, green: 31/255, blue: 31/255, alpha: 1)
+        application.statusBarStyle = .lightContent
         window?.addSubview(statusBarBackgroundView)
         window?.addConstraintsWithVisualFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
-        window?.addConstraintsWithVisualFormat(format: "V:|[v0(20)]|", views: statusBarBackgroundView)
+        let height = application.statusBarFrame.height
+        window?.addConstraintsWithVisualFormat(format: "V:|[v0(\(height))]", views: statusBarBackgroundView)
+        
         return true
     }
 
