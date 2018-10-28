@@ -51,6 +51,29 @@ class VideoCell: UICollectionViewCell {
         textView.textColor = .lightGray
         return textView
     }()
+    
+    var video: Video? {
+        didSet {
+            titleLabel.text = video?.title
+            
+            if let thumbnailImageName = video?.thumbnailImageName {
+                thumbnailImageView.image = UIImage(named: thumbnailImageName)
+            }
+            
+            if let profileImageName = video?.channel?.profileImageName {
+                userImageProfileView.image = UIImage(named: profileImageName)
+            }
+            
+            if let channelName = video?.channel?.name, let noOfViews = video?.numberOfViews {
+                
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = .decimal
+                
+                let subtitleText = "\(channelName) • \(numberFormatter.string(from: noOfViews)!) • 2 years ago"
+                subTitleTextView.text = subtitleText
+            }
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)

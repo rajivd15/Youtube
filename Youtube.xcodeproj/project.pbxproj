@@ -18,6 +18,8 @@
 		05DAA21D2184F4B9000CBA52 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DAA21C2184F4B9000CBA52 /* Extensions.swift */; };
 		05DAA22521851714000CBA52 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DAA22421851714000CBA52 /* MenuBar.swift */; };
 		05DAA2272185602E000CBA52 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DAA2262185602E000CBA52 /* MenuCell.swift */; };
+		05DAA32821862F07000CBA52 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DAA32721862F07000CBA52 /* Video.swift */; };
+		05DAA32C218631B9000CBA52 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DAA32B218631B9000CBA52 /* Channel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		05DAA21C2184F4B9000CBA52 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		05DAA22421851714000CBA52 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuBar.swift; path = Youtube/Views/MenuBar.swift; sourceTree = SOURCE_ROOT; };
 		05DAA2262185602E000CBA52 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		05DAA32721862F07000CBA52 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		05DAA32B218631B9000CBA52 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 		0557B6EC218197B900A77EED /* Youtube */ = {
 			isa = PBXGroup;
 			children = (
+				05DAA32621862ED2000CBA52 /* Models */,
 				05DAA223218516F3000CBA52 /* Views */,
 				05DAA21F2184F519000CBA52 /* Cells */,
 				05DAA21E2184F507000CBA52 /* Controllers */,
@@ -142,6 +147,15 @@
 			);
 			name = Views;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		05DAA32621862ED2000CBA52 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				05DAA32721862F07000CBA52 /* Video.swift */,
+				05DAA32B218631B9000CBA52 /* Channel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +264,9 @@
 				0557B6F0218197B900A77EED /* HomeViewController.swift in Sources */,
 				05DAA22521851714000CBA52 /* MenuBar.swift in Sources */,
 				05CDD0EC2182AEAD0080E5C5 /* VideoCell.swift in Sources */,
+				05DAA32821862F07000CBA52 /* Video.swift in Sources */,
 				0557B6F6218197B900A77EED /* Youtube.xcdatamodeld in Sources */,
+				05DAA32C218631B9000CBA52 /* Channel.swift in Sources */,
 				0557B6EE218197B900A77EED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
