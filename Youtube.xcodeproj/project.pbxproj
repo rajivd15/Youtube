@@ -17,6 +17,7 @@
 		05CDD0EC2182AEAD0080E5C5 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CDD0EB2182AEAD0080E5C5 /* VideoCell.swift */; };
 		05DAA21D2184F4B9000CBA52 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DAA21C2184F4B9000CBA52 /* Extensions.swift */; };
 		05DAA22521851714000CBA52 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DAA22421851714000CBA52 /* MenuBar.swift */; };
+		05DAA2272185602E000CBA52 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DAA2262185602E000CBA52 /* MenuCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		05CDD0EB2182AEAD0080E5C5 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		05DAA21C2184F4B9000CBA52 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		05DAA22421851714000CBA52 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuBar.swift; path = Youtube/Views/MenuBar.swift; sourceTree = SOURCE_ROOT; };
+		05DAA2262185602E000CBA52 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				05CDD0EB2182AEAD0080E5C5 /* VideoCell.swift */,
+				05DAA2262185602E000CBA52 /* MenuCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DAA2272185602E000CBA52 /* MenuCell.swift in Sources */,
 				05DAA21D2184F4B9000CBA52 /* Extensions.swift in Sources */,
 				0557B6F0218197B900A77EED /* HomeViewController.swift in Sources */,
 				05DAA22521851714000CBA52 /* MenuBar.swift in Sources */,
