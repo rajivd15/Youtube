@@ -12,7 +12,6 @@ class VideoCell: UICollectionViewCell {
 
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .yellow
         imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
@@ -29,10 +28,10 @@ class VideoCell: UICollectionViewCell {
 
     let userImageProfileView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .blue
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
@@ -58,10 +57,10 @@ class VideoCell: UICollectionViewCell {
     var video: Video? {
         didSet {
             titleLabel.text = video?.title
+
+            self.setupThumbnailImageView()
             
-            if let thumbnailImageName = video?.thumbnailImageName {
-                thumbnailImageView.image = UIImage(named: thumbnailImageName)
-            }
+            self.setupUserProfileImageView()
             
             if let profileImageName = video?.channel?.profileImageName {
                 userImageProfileView.image = UIImage(named: profileImageName)
@@ -132,5 +131,17 @@ class VideoCell: UICollectionViewCell {
         addConstraint(NSLayoutConstraint(item: self.subTitleTextView, attribute: .right, relatedBy: .equal, toItem: self.thumbnailImageView, attribute: .right, multiplier: 1, constant: 0))
         //Top Constraint
         addConstraint(NSLayoutConstraint(item: self.subTitleTextView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 30))
+    }
+    
+    private func setupThumbnailImageView() {
+        if let thumbnailImageUrl = video?.thumbnailImageName {
+           thumbnailImageView.loadImageUsingUrlString(urlString: thumbnailImageUrl)
+        }
+    }
+    
+    private func setupUserProfileImageView() {
+        if let userProfileImageUrl = video?.channel?.profileImageName {
+            userImageProfileView.loadImageUsingUrlString(urlString: userProfileImageUrl)
+        }
     }
 }
